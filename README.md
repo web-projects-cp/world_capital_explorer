@@ -1,95 +1,104 @@
-# 🌍 World Capital Explorer
+# Fast Track React app template with TypeScript & Redux 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![App Preview](https://via.placeholder.com/1280x600/3c40c6/ffffff?text=World+Capital+Explorer+Demo)  
-*(Replace with actual screenshot)*
+## Installation
+You should use either `npm` or `yarn` but not both. It's recommeded to use `yarn`
 
-An interactive React application showcasing all 200+ world capitals with Redux state management. Perfect for geography enthusiasts and travelers!
-
-## ✨ Key Features
-
-- **Comprehensive Database**  
-  📌 Displays capitals of every recognized sovereign state  
-  🔄 Real-time data fetching via REST Countries API
-
-- **Modern Tech Stack**  
-  ⚛️ React + TypeScript  
-  🏗️ Redux with Thunk middleware  
-  🌐 Axios for API calls  
-  🛠️ Redux DevTools integration
-
-- **User Experience**  
-  ⏳ Loading/error states handling  
-  📱 Fully responsive design  
-  🔍 Expandable for future search/filter features
-
-## 🛠️ Tech Stack
-
-| Category       | Technologies                                                                                   |
-|----------------|------------------------------------------------------------------------------------------------|
-| **Frontend**   | ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white) ![Redux](https://img.shields.io/badge/Redux-593D88?logo=redux&logoColor=white) |
-| **API**        | ![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white) [REST Countries](https://restcountries.com/) |
-| **Dev Tools**  | ![Redux DevTools](https://img.shields.io/badge/Redux_DevTools-593D88?logo=redux&logoColor=white) |
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js ≥14
-- npm ≥6 or yarn
-
-### Installation
-```bash
-git clone https://github.com/yourusername/world-capital-explorer.git
-cd world-capital-explorer
-npm install
-npm start
+This template already comes with all needed packages. In case you want to install manually, check the dependencies in `package.json` file. To install, run:
+```
+yarn install
 ```
 
-The app will launch at [http://localhost:3000](http://localhost:3000)
+## Features
+* Redux
+* Redux-thunk
+* Redux-saga
+* React-router
+* Prettier
+* ESLint
+* Husky & lint-staged
 
-## 📂 Project Architecture
+The template comes with ready-made code for a very simple working demo (products list). To play around with it, run:
 ```
-src/
-├── pages/
-│   ├── Home.tsx        # Main view with capitals list
-│   └── Country.tsx     # (Future) Detailed country view
-├── redux/
-│   ├── actions/
-│   │   └── countries.ts # Async action creators
-│   ├── reducers/
-│   │   └── countries.ts # State management logic
-│   └── store.ts        # Redux store configuration
-├── types.ts            # TypeScript interfaces
-└── App.tsx             # Root component
+yarn start
 ```
 
-## 🌐 API Usage
-```typescript
-// Example API call in Redux action
-axios.get('https://restcountries.com/v3.1/all')
-  .then(response => {
-    dispatch(fetchCountriesSuccess(response.data))
-  })
-```
+## Modify or add new features
+Follow the file/folder structure as explained below to make necessary changes. For Redux, most of the time, you can copy existing files, modify something in there to make a new feature.
 
-**Endpoint**: `https://restcountries.com/v3.1/all`  
-**Data Structure**:
-```json
-{
-  "name": {
-    "common": "Finland",
-    "official": "Republic of Finland"
-  },
-  "capital": ["Helsinki"],
-  // ...other fields
-}
-```
+## Folder structure
+* `src/components`: React components. For each component, it's better to put it in a separate folder. For example:
+  ```
+  src/components/Button/index.tsx
+  src/components/Button/Button.scss
+  src/components/Button/Button.stories.tsx
+  src/components/Button/Button.test.tsx
+  ```
 
-## 🧑‍💻 Development Guide
+* `src/hooks`: Custom hooks. For example:
+  ```
+  src/hooks/useCountries.ts
+  src/hooks/useUser.ts
+  ```
 
-### Common Commands
-| Command         | Action                              |
-|-----------------|-------------------------------------|
-| `npm start`     | Launch development server           |
-| `npm run build` | Create production build             |
-| `npm test`      | Run test suite                      |
+* `src/redux`: Everything (such as actions, reducers, sagas etc) related to Redux
+  * `src/redux/actions`: For Redux actions
+  * `src/redux/reducers`: For Redux reducers
+  * `src/redux/sagas`: For Redux sagas
+  * `src/redux/store.ts`: The Redux store
 
+  If there are multiple un-related features, split action/reducer/saga into different files. For example:
+  ```
+  src/redux/actions/product.ts
+  src/redux/actions/order.ts
+  src/redux/actions/ui.ts
+  ```
+  ```
+  src/redux/reducers/product.ts
+  src/redux/reducers/order.ts
+  src/redux/actions/ui.ts
+  ```
+  ```
+  src/redux/sagas/product.ts
+  src/redux/sagas/order.ts
+  src/redux/sagas/ui.ts
+  ```
+
+* `src/pages`: Pages (or views) when using [React router](https://reacttraining.com/react-router/web/guides/quick-start). For example:
+  ```
+  src/pages/Home.tsx
+  src/pages/Product.tsx
+  ```
+  If there are more files than just page's `*.tsx`, a folder structure can be used. For example:
+  ```
+  src/pages/Home/index.tsx
+  src/pages/Home/Home.scss
+  ```
+
+* `src/types.ts`: TypeScript's type definitions. For small apps, you can put definitions of all types, interfaces etc and even Redux's actions, action creators, states here.
+
+* `src/Routes.tsx`: Defines all the React router routes to different pages.
+
+This template is suitable for rather small apps. For bigger apps, a better & more organized way is to split the folder structure into features, something like:
+  ```
+  sr/feature1
+  --components
+  --redux
+  ----action.ts
+  ----reducer.ts
+  ----saga.ts
+
+  src/feature2
+  --components
+  --redux
+  ----action.ts
+  ----reducer.ts
+  ----saga.ts
+
+  src/redux
+  --action.ts
+  --reducer.ts
+  --saga.ts
+  --store.ts
+  ```
+# CP_Portfolio
