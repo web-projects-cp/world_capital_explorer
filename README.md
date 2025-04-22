@@ -1,6 +1,4 @@
-# World Capital Explorer - README
-
-![Project Logo](./public/logo192.png)
+# World Capital Explorer
 
 ## 📌 Overview
 World Capital Explorer is a React-based web application that displays the capitals of countries around the world. This project provides an interactive way to explore country capitals with a clean, user-friendly interface.
